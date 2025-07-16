@@ -1,0 +1,128 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #74ebd5 0%, #ACB6E5 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 520px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 35px 30px 30px 30px;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(44, 62, 80, 0.13);
+    border: 1.5px solid #e3e9f0;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #2980b9;
+}
+
+select, input[type="text"] {
+    padding: 10px 12px;
+    border: 1.5px solid #b2bec3;
+    border-radius: 7px;
+    font-size: 1em;
+    background: #f7fafd;
+    transition: border 0.2s;
+}
+
+select:focus, input[type="text"]:focus {
+    border: 1.5px solid #2980b9;
+    outline: none;
+}
+
+button {
+    background: linear-gradient(90deg, #2980b9 0%, #6dd5fa 100%);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #217dbb 0%, #48c6ef 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+#resultado {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.result-card {
+    background: #f7fafd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+    padding: 18px 16px 14px 16px;
+    border-left: 5px solid #2980b9;
+    position: relative;
+    animation: fadeIn 0.7s;
+}
+
+.result-card .bus-title {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #217dbb;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.result-card .bus-title::before {
+    content: "🚌";
+    font-size: 1.1em;
+}
+
+.result-card .trayecto {
+    color: #222;
+    margin-bottom: 5px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.result-card .tipo {
+    font-size: 0.97em;
+    color: #888;
+    margin-top: 2px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #e3e9f0;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #b2bec3;
+    border-radius: 8px;
+} 
