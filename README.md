@@ -6,7 +6,7 @@ Moverse en transporte público es una experiencia llena de incertidumbre. A diar
 1. No saben con precisión qué ruta tomar para llegar a su destino.
 2. No tienen informacíon en tiempo real sobre cambios en las rutas, retrasos o paro de buses.
 3. No saben dónde pueden tomar un bus o si hay mejores alternativas de rutas disponibles.
-### Esto genera pérdida de tiempo, desinformación y una constante sensación de incertidumbre para miles de personas, especialmente en ciudades grndes.
+- Esto genera pérdida de tiempo, desinformación y una constante sensación de incertidumbre para miles de personas, especialmente en ciudades grndes.
 
 ## 💡 Solución
 Esta aplicación busca convertirse en el **asistente ideal para los usuarios que utilizan transporte público** ofreciendo:
