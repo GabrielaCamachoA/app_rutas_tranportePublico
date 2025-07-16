@@ -34,7 +34,7 @@ El prototipo incluye:
 ## 🛠️ Stack Tecnológico (propuesto)
 
 - **Frontend**: HTML, CSS, JavaScript (SPA)
-- **Backend (futuro)**:                                                                                                                                 
+- **Backend (futuro)**: Node.js                                                                                                                            
 - **API de geolocalización**: Google Maps API
 - **Notificaciones push**: Firebase o similar
 - **Base de datos de rutas (temporal)**: JSON Server
