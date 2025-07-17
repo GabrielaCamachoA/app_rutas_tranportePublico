@@ -1,3 +1,6 @@
+// Importar coordenadas
+import { coordenadasParadas } from './coordenadas.js';
+
 // Definición de rutas
 const rutas = [
   {
@@ -11,34 +14,23 @@ const rutas = [
     paradas: [
       "Terminal (Calle 5 Carrera 43)", "Carrera 43", "Calle 30", "Carrera 40", "Calle 37", "Carrera 33", "Calle 55", "Carrera 27", "Calle 56", "Carrera 25", "Calle 58", "Carrera 21B", "Calle 58", "Carrera 15", "Calle 60", "Carrera 10", "Calle 63B", "Carrera 09", "Calle 87", "Carrera 09G", "Calle 70C", "Carrera 14B", "Carrera 15", "Calle 64C", "Carrera 14", "Calle 63", "Carrera 15", "Calle 64B", "Carrera 21B", "Calle 68", "Carrera 26D", "Calle 70B", "Carrera 31", "Calle 56", "Carrera 32", "Calle 55", "Carrera 33", "Calle 52", "Carrera 41", "Calle 36", "Carrera 44", "Calle 06", "Carrera 43", "Terminal (Calle 005)"
     ]
+  },
+  {
+    nombre: "Flota Roja",
+    paradas: [
+      "Nevada Frente a la Escuela de Policía", "Avenida Circunvalar", "Avenida El Platanal", "Calle 45", "Carrera 24", "Avenida Murillo", "Avenida Circunvalar", "Barranquilla", "Boulevard de Simón Bolívar", "Carrera 7", "Calle 24", "Carrera 10", "Calle 30", "Carrera 39", "Calle 38", "Carrera 43", "Calle 84", "Carrera 64", "Calle 85", "Carrera 44", "Calle 70", "Carrera 41", "Calle 37", "Carrera 40", "Calle 30", "Carrera 15", "Calle 24", "Carrera 7", "Boulevard de Simón Bolívar", "Avenida Circunvalar", "Retorno Escuela de Policía", "Avenida Circunvalar", "Nevada Frente a la Escuela de Policía"
+    ]
+  },
+  {
+    nombre: "Embusa",
+    paradas: [
+      "Terminal (Calle 8 No. 41N-70)", "Calle 8", "Carrera 43", "Calle 30", "Carrera 39", "Calle 28", "Carrera 38", "Calle 4", "Carrera 30", "Calle 17", "Carrera 15", "Calle 30", "Carrera 8", "Calle 51B", "Carrera 8F", "Calle 50A", "Carrera 10", "Calle 54", "Carrera 14", "Calle 53D", "Carrera 25", "Calle 57", "Carrera 27", "Calle 53D", "Carrera 33", "Calle 52", "Carrera 43", "Calle 53", "Carrera 53", "Calle 64", "Carrera 58", "Calle 77", "Vía 40", "Calle 75", "Carrera 68", "Calle 74", "Carrera 61", "Calle 68", "Carrera 66", "Calle 52", "Carrera 54", "Calle 58", "Calle 59", "Carrera 50", "Calle 54", "Carrera 33", "Calle 57", "Carrera 25", "Calle 53D", "Carrera 16", "Calle 46", "Calle 54", "Carrera 10", "Calle 50A", "Carrera 8F", "Calle 51B", "Carrera 8", "Calle 30", "Carrera 15", "Calle 17", "Carrera 30", "Calle 4", "Carrera 38", "Calle 30", "Carrera 44", "Calle 8", "Terminal (Calle 8 No. 41N-70)"
+    ]
   }
 ];
 
 // Unir todas las paradas únicas para los selects
 const todasParadas = [...new Set(rutas.flatMap(r => r.paradas))];
-
-// Coordenadas aproximadas de algunas paradas conocidas
-const coordenadasParadas = {
-  "Terminal (Calle 8 No. 41n-70)": [10.9639, -74.7964], // Terminal Metropolitana
-  "Terminal (Calle 5 Carrera 43)": [10.9639, -74.7964], // Usamos la misma terminal para ejemplo
-  "Terminal (Calle 005)": [10.9639, -74.7964],
-  "Calle 30": [10.9781, -74.8281],
-  "Calle 84B": [11.0100, -74.8280],
-  "Carrera 43": [10.9930, -74.7960],
-  "Calle 87": [11.0130, -74.8285],
-  "Calle 74": [11.0060, -74.8190],
-  "Calle 36": [10.9800, -74.7880],
-  "Calle 55": [10.9950, -74.8060],
-  "Calle 56": [10.9960, -74.8070],
-  "Calle 58": [10.9980, -74.8080],
-  "Calle 60": [11.0000, -74.8090],
-  "Calle 63": [11.0030, -74.8100],
-  "Calle 64B": [11.0040, -74.8110],
-  "Calle 68": [11.0080, -74.8130],
-  "Calle 70B": [11.0100, -74.8140],
-  "Calle 82": [11.0120, -74.8200],
-  // Puedes agregar más paradas aquí
-};
 
 // Iconos SVG inline para inicio, fin e intermedios
 const iconInicio = L.divIcon({
