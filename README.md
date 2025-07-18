@@ -38,3 +38,9 @@ El prototipo incluye:
 - **API de geolocalización**: Google Maps API
 - **Notificaciones push**: Firebase o similar
 - **Base de datos de rutas (temporal)**: JSON Server
+
+## implementaciones del software
+
+- Registros de placa de bus y conductor
+- seguimiento de bus en la zona, si esta cerca o lejos
+- 
