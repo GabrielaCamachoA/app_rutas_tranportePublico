@@ -1,128 +1,157 @@
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(120deg, #74ebd5 0%, #ACB6E5 100%);
     margin: 0;
     padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f5f8ff;
+    color: #222;
+}
+
+#app {
     min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
 }
 
-.container {
-    max-width: 520px;
-    margin: 50px auto;
+/* Estilos base para centrar el login y el contenedor principal */
+.view-container {
+    margin: auto;
     background: #fff;
-    padding: 35px 30px 30px 30px;
     border-radius: 18px;
-    box-shadow: 0 6px 32px rgba(44, 62, 80, 0.13);
-    border: 1.5px solid #e3e9f0;
+    box-shadow: 0 2px 16px 0 #0001;
+    padding: 32px 24px;
+    min-width: 350px;
+    max-width: 420px;
+    width: 100%;
 }
 
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-}
-
-form {
+/* Menú lateral (para las vistas internas) */
+.sidebar {
+    width: 250px;
+    background: #fff;
+    border-radius: 18px 0 0 18px;
+    box-shadow: 0 2px 16px 0 #0001;
+    padding: 32px 0 24px 0;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    align-items: stretch;
+    min-height: 90vh;
 }
 
-label {
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: #2980b9;
-}
-
-select, input[type="text"] {
-    padding: 10px 12px;
-    border: 1.5px solid #b2bec3;
-    border-radius: 7px;
-    font-size: 1em;
-    background: #f7fafd;
-    transition: border 0.2s;
-}
-
-select:focus, input[type="text"]:focus {
-    border: 1.5px solid #2980b9;
-    outline: none;
-}
-
-button {
-    background: linear-gradient(90deg, #2980b9 0%, #6dd5fa 100%);
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 7px;
-    font-size: 1.1em;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
-    transition: background 0.2s, transform 0.1s;
-}
-
-button:hover {
-    background: linear-gradient(90deg, #217dbb 0%, #48c6ef 100%);
-    transform: translateY(-2px) scale(1.03);
-}
-
-#resultado {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.result-card {
-    background: #f7fafd;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
-    padding: 18px 16px 14px 16px;
-    border-left: 5px solid #2980b9;
-    position: relative;
-    animation: fadeIn 0.7s;
-}
-
-.result-card .bus-title {
-    font-size: 1.15em;
-    font-weight: 700;
-    color: #217dbb;
-    margin-bottom: 7px;
+.sidebar .logo {
     display: flex;
     align-items: center;
-    gap: 7px;
+    justify-content: center;
+    margin-bottom: 32px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2563eb;
+    gap: 10px;
 }
 
-.result-card .bus-title::before {
-    content: "🚌";
-    font-size: 1.1em;
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 32px;
 }
 
-.result-card .trayecto {
+.sidebar nav button {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 32px;
+    font-size: 1rem;
     color: #222;
-    margin-bottom: 5px;
-    font-size: 1em;
-    line-height: 1.5;
+    cursor: pointer;
+    border-radius: 8px 0 0 8px;
+    transition: background 0.2s, color 0.2s;
 }
 
-.result-card .tipo {
-    font-size: 0.97em;
-    color: #888;
-    margin-top: 2px;
+.sidebar nav button.active, .sidebar nav button:hover {
+    background: #2563eb;
+    color: #fff;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Panel principal */
+.main-content {
+    flex: 1;
+    background: none;
+    padding: 32px 40px 32px 40px;
+    min-width: 0;
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-    background: #e3e9f0;
+/* Utilidades */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 16px; }
+.mt-4 { margin-top: 24px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 16px; }
+.mb-4 { margin-bottom: 24px; }
+
+/* Botón principal */
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+    border: none;
     border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background 0.2s;
 }
-::-webkit-scrollbar-thumb {
-    background: #b2bec3;
+.btn-primary:hover {
+    background: #1746a2;
+}
+
+/* Inputs */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+.input-group label {
+    font-weight: 600;
+    font-size: 1rem;
+}
+.input-group input {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
+    font-size: 1rem;
+    background: #f3f6fb;
+    outline: none;
+    transition: border 0.2s;
+}
+.input-group input:focus {
+    border: 1.5px solid #2563eb;
+}
+
+/* Links */
+.link {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.98rem;
+    cursor: pointer;
+}
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Mapa interactivo */
+#map {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    margin-top: 18px;
+    box-shadow: 0 2px 12px #0001;
+    z-index: 1;
 } 
