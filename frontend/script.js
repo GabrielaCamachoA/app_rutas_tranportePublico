@@ -373,43 +373,149 @@ function renderNotificaciones() {
     };
 }
 
-function renderHistorial() {
+function renderHistorial(tab = 'historial') {
+    // Datos mock de viajes realizados
+    const viajes = [
+        {
+            ruta: 'R1',
+            nombre: 'Centro - Terminal Norte',
+            fecha: '16 ene 2025, 04:30',
+            desde: 'Plaza Mayor',
+            hasta: 'Terminal Norte',
+            calificacion: 4,
+            precio: 2.5,
+            duracion: '45 min'
+        },
+        {
+            ruta: 'R15',
+            nombre: 'Universidad - Aeropuerto',
+            fecha: '15 ene 2025, 09:20',
+            desde: 'Universidad Central',
+            hasta: 'Aeropuerto',
+            calificacion: 5,
+            precio: 3.0,
+            duracion: '1h 15min'
+        }
+    ];
+    // Datos mock de reportes
+    const reportes = [
+        {
+            fecha: '16 ene 2025, 05:00',
+            ruta: 'R1',
+            descripcion: 'Retraso de 20 minutos por tráfico en la Av. Principal.',
+            estado: 'Pendiente'
+        },
+        {
+            fecha: '15 ene 2025, 10:00',
+            ruta: 'R15',
+            descripcion: 'El bus no se detuvo en la parada Universidad.',
+            estado: 'Resuelto'
+        }
+    ];
+    // Tips de la comunidad
+    const tips = [
+        {
+            ruta: 'R1',
+            tipo: 'Horarios',
+            texto: 'Para evitar multitudes, toma el bus después de las 9:30 AM. Mucho más cómodo.',
+            fecha: '15 ene, 2025, 05:00',
+            usuario: 'Usuario123',
+            likes: 12
+        },
+        {
+            ruta: 'R15',
+            tipo: 'Rutas',
+            texto: 'En la parada de la Universidad, espera en la parte trasera del andén. Es donde para el bus.',
+            fecha: '14 ene, 2025, 10:30',
+            usuario: 'Viajero',
+            likes: 8
+        }
+    ];
+    // Renderizado de pestañas
     document.getElementById('main-content').innerHTML = `
-        <div style="display:flex;gap:32px;flex-wrap:wrap;">
-            <div style="min-width:180px;background:#eaf1ff;padding:18px 18px 12px 18px;border-radius:12px;margin-bottom:18px;">
-                <div style="color:#2563eb;font-weight:600;">Tiempo ahorrado</div>
-                <div style="font-size:1.3em;font-weight:700;">${mockHistorial.tiempoAhorrado}</div>
-                <div style="color:#888;font-size:0.97em;">Esta semana</div>
-            </div>
-            <div style="min-width:180px;background:#eafdf6;padding:18px 18px 12px 18px;border-radius:12px;margin-bottom:18px;">
-                <div style="color:#16a34a;font-weight:600;">Viajes realizados</div>
-                <div style="font-size:1.3em;font-weight:700;">${mockHistorial.viajesRealizados}</div>
-                <div style="color:#888;font-size:0.97em;">Este mes</div>
-            </div>
-        </div>
-        <div style="background:#fff;padding:24px 24px 16px 24px;border-radius:16px;">
-            <div style="font-size:1.2rem;font-weight:600;">Mi Historial</div>
-            <div style="color:#666; font-size:1rem; margin-bottom:12px;">Revisa tus viajes, califica rutas y comparte tu experiencia</div>
-            <div style="display:flex;gap:18px;margin-bottom:18px;">
-                <button class="btn-quick" style="background:#eaf1ff;color:#2563eb;border:none;border-radius:8px;padding:7px 18px;font-size:1em;cursor:pointer;">Historial</button>
-                <button class="btn-quick" style="background:#eaf1ff;color:#2563eb;border:none;border-radius:8px;padding:7px 18px;font-size:1em;cursor:pointer;">Reportes</button>
-                <button class="btn-quick" style="background:#2563eb;color:#fff;border:none;border-radius:8px;padding:7px 18px;font-size:1em;cursor:pointer;">Tips</button>
-            </div>
-            <div style="font-weight:600;margin-bottom:8px;">Tips de la Comunidad</div>
-            ${mockHistorial.tips.map(tip=>`
-                <div style="background:#f3f6fb;border-radius:10px;padding:14px 18px 10px 18px;margin-bottom:12px;">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
-                        <span style="background:#eaf1ff;color:#2563eb;padding:2px 8px;border-radius:6px;font-size:0.98em;">${tip.ruta}</span>
-                        <span style="background:#eafdf6;color:#16a34a;padding:2px 8px;border-radius:6px;font-size:0.98em;">${tip.tipo}</span>
-                    </div>
-                    <div style="color:#222;font-size:1em;margin-bottom:4px;">${tip.texto}</div>
-                    <div style="color:#888;font-size:0.97em;">${tip.fecha} &nbsp;|&nbsp; por ${tip.usuario}</div>
-                    <div style="margin-top:4px;color:#2563eb;font-size:1.1em;float:right;">👍 ${tip.likes}</div>
-                    <div style="clear:both"></div>
+        <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start;">
+            <div style="min-width:180px;max-width:220px;width:100%;display:flex;flex-direction:column;gap:18px;">
+                <div style="background:#eaf1ff;padding:18px 18px 12px 18px;border-radius:12px;">
+                    <div style="color:#2563eb;font-weight:600;">Tiempo ahorrado</div>
+                    <div style="font-size:1.3em;font-weight:700;">2h 15min</div>
+                    <div style="color:#888;font-size:0.97em;">Esta semana</div>
                 </div>
-            `).join('')}
+                <div style="background:#eafdf6;padding:18px 18px 12px 18px;border-radius:12px;">
+                    <div style="color:#16a34a;font-weight:600;">Viajes realizados</div>
+                    <div style="font-size:1.3em;font-weight:700;">12</div>
+                    <div style="color:#888;font-size:0.97em;">Este mes</div>
+                </div>
+            </div>
+            <div style="flex:1;min-width:320px;">
+                <div style="background:#fff;padding:24px 24px 16px 24px;border-radius:16px;">
+                    <div style="font-size:1.2rem;font-weight:600;">Mi Historial</div>
+                    <div style="color:#666; font-size:1rem; margin-bottom:12px;">Revisa tus viajes, califica rutas y comparte tu experiencia</div>
+                    <div style="display:flex;gap:18px;margin-bottom:18px;">
+                        <button id="tab-historial" class="btn-quick" style="background:${tab==='historial'?'#2563eb':'#eaf1ff'};color:${tab==='historial'?'#fff':'#2563eb'};border:none;border-radius:8px;padding:7px 18px;font-size:1em;cursor:pointer;">Historial</button>
+                        <button id="tab-reportes" class="btn-quick" style="background:${tab==='reportes'?'#2563eb':'#eaf1ff'};color:${tab==='reportes'?'#fff':'#2563eb'};border:none;border-radius:8px;padding:7px 18px;font-size:1em;cursor:pointer;">Reportes</button>
+                        <button id="tab-tips" class="btn-quick" style="background:${tab==='tips'?'#2563eb':'#eaf1ff'};color:${tab==='tips'?'#fff':'#2563eb'};border:none;border-radius:8px;padding:7px 18px;font-size:1em;cursor:pointer;">Tips</button>
+                    </div>
+                    <div id="tab-content">
+                        ${tab === 'historial' ?
+                            viajes.map(viaje => `
+                                <div class=\"historial-card\">
+                                    <div class=\"historial-header\">
+                                        <span class=\"ruta-badge\">${viaje.ruta}</span>
+                                        <span class=\"nombre\">${viaje.nombre}</span>
+                                    </div>
+                                    <div class=\"historial-info\">${viaje.fecha}</div>
+                                    <div class=\"historial-locs\">
+                                        <span><span style='font-size:1.1em;'>📍</span> Desde: ${viaje.desde}</span>
+                                        <span><span style='font-size:1.1em;'>📍</span> Hasta: ${viaje.hasta}</span>
+                                    </div>
+                                    <div class=\"historial-footer\">
+                                        <div class=\"calificacion\">
+                                            <span>Calificación:</span>
+                                            <span>
+                                                ${[1,2,3,4,5].map(i => `<span class='${i<=viaje.calificacion?'':'star-off'}'>★</span>`).join('')}
+                                            </span>
+                                        </div>
+                                        <div class=\"precio\">$${viaje.precio.toFixed(2)}</div>
+                                        <div class=\"duracion\">${viaje.duracion}</div>
+                                        <button class=\"btn-reportar\"><span style=\"font-size:1.1em;\">&#9432;</span> Reportar</button>
+                                    </div>
+                                </div>
+                            `).join('') :
+                        tab === 'reportes' ?
+                            reportes.map(rep => `
+                                <div class=\"historial-card\" style=\"border-left:5px solid ${rep.estado==='Pendiente'?'#facc15':'#16a34a'};\">
+                                    <div class=\"historial-header\">
+                                        <span class=\"ruta-badge\">${rep.ruta}</span>
+                                        <span class=\"nombre\">${rep.descripcion}</span>
+                                    </div>
+                                    <div class=\"historial-info\">${rep.fecha}</div>
+                                    <div style=\"margin-top:8px;display:flex;align-items:center;gap:12px;\">
+                                        <span style=\"background:${rep.estado==='Pendiente'?'#facc15':'#16a34a'};color:#fff;padding:2px 10px;border-radius:8px;font-size:0.93em;\">${rep.estado}</span>
+                                    </div>
+                                </div>
+                            `).join('') :
+                        tips.map(tip => `
+                            <div style=\"background:#f3f6fb;border-radius:10px;padding:14px 18px 10px 18px;margin-bottom:12px;\">
+                                <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:4px;\">
+                                    <span style=\"background:#eaf1ff;color:#2563eb;padding:2px 8px;border-radius:6px;font-size:0.98em;\">${tip.ruta}</span>
+                                    <span style=\"background:#eafdf6;color:#16a34a;padding:2px 8px;border-radius:6px;font-size:0.98em;\">${tip.tipo}</span>
+                                </div>
+                                <div style=\"color:#222;font-size:1em;margin-bottom:4px;\">${tip.texto}</div>
+                                <div style=\"color:#888;font-size:0.97em;\">${tip.fecha} &nbsp;|&nbsp; por ${tip.usuario}</div>
+                                <div style=\"margin-top:4px;color:#2563eb;font-size:1.1em;float:right;\">👍 ${tip.likes}</div>
+                                <div style=\"clear:both\"></div>
+                            </div>
+                        `).join('')
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     `;
+    // Eventos para pestañas
+    document.getElementById('tab-historial').onclick = () => renderHistorial('historial');
+    document.getElementById('tab-reportes').onclick = () => renderHistorial('reportes');
+    document.getElementById('tab-tips').onclick = () => renderHistorial('tips');
 }
 
 function mostrarDetalleRuta(ruta) {
