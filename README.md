@@ -24,6 +24,19 @@ El proyecto está orientado al sector de **movilidad urbana** y **tecnología c�
 3. Ciudades intermedias y grandes con sistemas de transporte poco digitalizados.
 4. Alcaldías o gobiernos interesados en modernizar sus canales de información.
 
+## Valores
+# 🫶 Compromiso con la comunidad
+Trabajamos para mejorar la calidad de vida de quienes usan el transporte público, escuchando sus necesidades y construyendo soluciones reales para su día a día.
+
+# 🔎 Transparencia
+Brindamos información clara, confiable y en tiempo real. La confianza del usuario es la base de nuestras decisiones y comunicación.
+
+# 💛 Empatía
+Entendemos los desafíos de moverse por la ciudad. Diseñamos pensando en las personas, sus contextos y realidades.
+
+# ♿ Accesibilidad
+Nuestra plataforma es intuitiva, inclusiva y pensada para que cualquier persona, sin importar su experiencia digital, pueda usarla fácilmente.
+
 ## 🧪 Demo / Prototipo
 El prototipo incluye:
 
