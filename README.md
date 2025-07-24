@@ -35,6 +35,6 @@ El prototipo incluye:
 
 - **Frontend**: HTML, CSS, JavaScript (SPA)
 - **Backend (futuro)**: Node.js                                                                                                                            
-- **API de geolocalización**: API waze
+- **API de geolocalización**: Foogle Maps API
 - **Notificaciones push**: Firebase o similar
 - **Base de datos de rutas (temporal)**: MariaDB
